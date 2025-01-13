@@ -12,7 +12,7 @@ class Storage():
     def __init__(self):
     
         self.production_db = ""
-        if os.getenv('dev_env') = 'development_env':
+        if os.getenv('dev_env') == 'development_env':
             self.db_uri = os.getenv('CROPSHIELD_DEVELOPMENT_DB')
         else:
             self.db_uri = os.getenv('CROPSHIELD_PRODUCTION_DB')
