@@ -10,6 +10,7 @@ class User(Base):
     id = Column(String(36), primary_key=True)  
     email = Column(String(100), nullable=False, unique=True)  
     password = Column(String(255), nullable=False)  
+    name = Column(String(45), nullable=True)
     role = Column(String(20), nullable=False, default="farmer")  
     country = Column(String(50))  
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
