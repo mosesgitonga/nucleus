@@ -1,2 +1,6 @@
+*data*
 .env
-venv
+*.pkl
+*.pth
+*venv
+
