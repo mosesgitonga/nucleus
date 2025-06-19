@@ -5,14 +5,12 @@ from model import load_model
 import google.generativeai as genai
 import os
 
-# Load model once at module level
 model = load_model()
 class_names = [
     "Tomato_Early_blight", "Tomato_Late_blight",
     "Tomato_healthy"
 ]
 
-# Configure Gemini API (assumes API key is set in environment)
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 def get_prediction(image_bytes):
@@ -23,7 +21,7 @@ def get_prediction(image_bytes):
         confidence, predicted_idx = torch.max(probabilities, dim=1)
 
     predicted_label = class_names[predicted_idx.item()]
-    confidence_score = confidence.item() * 100  # convert to percentage
+    confidence_score = confidence.item() * 100  
 
     return {
         "label": predicted_label,
