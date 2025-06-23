@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "cropwatch_backend": {
+      "main": "src/cropwatch_backend/main.mo",
+      "type": "motoko"
+    },
+    "cropwatch_frontend": {
+      "dependencies": [
+        "cropwatch_backend"
+      ],
+      "source": [
+        "src/cropwatch_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "cropwatch_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
