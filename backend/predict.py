@@ -22,7 +22,6 @@ def get_prediction(image_bytes):
 
     predicted_label = class_names[predicted_idx.item()]
     confidence_score = confidence.item() * 100  
-    confidence_score = confidence.item() * 100  
 
     return {
         "label": predicted_label,
