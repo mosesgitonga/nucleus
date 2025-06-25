@@ -3,7 +3,6 @@ import Array "mo:base/Array";
 import Float "mo:base/Float";
 
 actor {
-
   // report structure
   type CropReport = {
     crop: Text;

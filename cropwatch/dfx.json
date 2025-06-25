@@ -5,22 +5,32 @@
       "type": "motoko"
     },
     "cropwatch_frontend": {
-      "dependencies": [
-        "cropwatch_backend"
-      ],
-      "source": [
-        "src/cropwatch_frontend/dist"
-      ],
       "type": "assets",
-      "workspace": "cropwatch_frontend"
+      "source": ["src/cropwatch_frontend/dist"],
+      "headers": {
+        "Content-Security-Policy": "default-src 'self'; connect-src 'self' http://localhost:8000 http://localhost:4943 http://*.localhost:4943; img-src 'self' data: blob: https://a.tile.openstreetmap.org https://b.tile.openstreetmap.org https://c.tile.openstreetmap.org; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"
+      }
     }
   },
   "defaults": {
     "build": {
       "args": "",
       "packtool": ""
+    },
+    "replica": {
+      "port": 4943
     }
   },
   "output_env_file": ".env",
-  "version": 1
+  "version": 1,
+  "networks": {
+    "ic": {
+      "providers": ["https://api.ic0.app"],
+      "type": "persistent"
+    },
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  }
 }

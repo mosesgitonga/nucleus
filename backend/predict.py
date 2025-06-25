@@ -2,18 +2,18 @@ import torch
 import torch.nn.functional as F
 from utils import transform_image
 from model import load_model
-import google.generativeai as genai
+from google import genai
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 model = load_model()
-class_names = [
-    "Tomato_Early_blight", "Tomato_Late_blight",
-    "Tomato_healthy"
-]
+class_names = ["Tomato_Early_blight", "Tomato_Late_blight", "Tomato_healthy"]
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
-def get_prediction(image_bytes):
+async def get_prediction(image_bytes):
     tensor = transform_image(image_bytes)
     with torch.no_grad():
         outputs = model(tensor)
@@ -28,5 +28,16 @@ def get_prediction(image_bytes):
         "confidence": round(confidence_score, 2)
     }
 
-def farmer_advice():
-    pass 
+async def farmerCropHealthAdvice(image_bytes):
+    prediction = await get_prediction(image_bytes)
+    prompt = (
+        f"Act as a highly experienced agricultural officer. "
+        f"Briefly, Give advice to a farmer based on the predicted tomato disease: "
+        f"{prediction['label']} with {prediction['confidence']}% confidence."
+    )
+    response = client.models.generate_content(
+        model="gemini-2.5-flash", contents=prompt)   
+    return {
+        "prediction": prediction,
+        "advice": response.text
+    }

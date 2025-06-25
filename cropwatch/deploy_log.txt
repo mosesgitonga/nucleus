@@ -1,0 +1,10 @@
+[31mError: (B[mFailed to create AgentEnvironment.
+[33mCaused by: (B[mFailed to create AgentEnvironment for network 'ic'.
+[33mCaused by: (B[mFailed to load identity
+[33mCaused by: (B[mFailed to instantiate identity
+[33mCaused by: (B[mFailed to load PEM
+[33mCaused by: (B[mFailed to load PEM file from file
+[33mCaused by: (B[mFailed to decrypt PEM file at /home/moses/.config/dfx/identity/secure-id/identity.pem.encrypted
+[33mCaused by: (B[mFailed to read user input
+[33mCaused by: (B[mIO error: not a terminal
+[33mCaused by: (B[mnot a terminal
