@@ -1,7 +1,7 @@
 import torch
 from torchvision import models
 
-MODEL_PATH = "../AI/nucleusV5_model.pth"
+MODEL_PATH = "./nucleusV5_model.pth"
 
 def load_model():
     with torch.serialization.safe_globals([models.resnet34]):  

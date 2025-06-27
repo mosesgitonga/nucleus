@@ -14,5 +14,9 @@
   "type": "module",
   "workspaces": [
     "src/cropwatch_frontend"
-  ]
+  ],
+  "dependencies": {
+    "leaflet.heat": "^0.2.0",
+    "react-router-dom": "^7.6.2"
+  }
 }

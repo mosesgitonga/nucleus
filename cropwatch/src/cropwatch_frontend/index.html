@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' http://localhost:8000 http://localhost:4943; img-src 'self' data: blob:;">
-  <title>CropWatch</title>
-  <base href="/" />
-  <link rel="icon" href="/favicon.ico" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nucleus Smart Farming</title>
+  <link rel="preload" href="/assets/index-BCotUsjI.css" as="style">
+  <link rel="stylesheet" href="/assets/index-BCotUsjI.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f0f2f5; color: #1f2a44; line-height: 1.6; }
+    .map-container, .predict-container { max-width: 1200px; margin: 2rem auto; padding: 2rem; background: #ffffff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); }
+    .header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2.5rem; justify-content: center; }
+    .header h1 { font-size: 2.5rem; font-weight: 800; color: #1f2a44; }
+    .header-icon { font-size: 2.5rem; }
+    .map { height: 600px; border-radius: 12px; border: 1px solid #e5e7eb; }
+    .message { padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 500; margin-bottom: 1.5rem; text-align: center; }
+    .message.info { background: #e6f3ff; color: #31708f; border: 1px solid #60a5fa; }
+    .message.error { background: #fef2f2; color: #991b1b; border: 1px solid #f87171; }
+    .nav { margin-top: 1rem; text-align: center; }
+    .nav a { color: #10b981; font-weight: 600; text-decoration: none; }
+    .nav a:hover { text-decoration: underline; }
+    @media (max-width: 768px) { .map { height: 400px; } .map-container, .predict-container { margin: 1rem; padding: 1.5rem; } .header h1 { font-size: 2rem; } .header-icon { font-size: 2rem; } }
+    @media (max-width: 480px) { .map { height: 300px; } .map-container, .predict-container { padding: 1rem; } .header h1 { font-size: 1.75rem; } }
+  </style>
 </head>
 <body>
   <div class="browser-warning">
-    ⚠️ If this page appears broken, try reloading. If the problem persists, try switching browsers; Chrome or Firefox are recommended.
+    ⚠️ If this page appears broken, try reloading. If the problem persists, try switching browsers; Chrome or Firefox
+    are recommended.
   </div>
   <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
+  <script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""
+></script>
+<script type="module" src="/src/main.jsx"></script>
 </body>
+
 </html>

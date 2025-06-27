@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Predict from './pages/predict';
 import LandingPage from './pages/landingPage';
-import DiseaseMap from './pages/DiseaseMap';
+import MapPage from './pages/DiseaseMap';
 import 'leaflet/dist/leaflet.css';
 
 
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path="/predict" element={<Predict />} />
-        <Route path="/map" element={<DiseaseMap />} />
+        <Route path="/map" element={<MapPage />} />
       </Routes>
     </BrowserRouter>
   );
